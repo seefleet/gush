@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "redis-mutex", "~> 4.0.1"
   spec.add_dependency "hiredis", "~> 0.6"
   spec.add_dependency "ruby-graphviz", "~> 1.2"
-  spec.add_dependency "terminal-table", "~> 1.4"
+  spec.add_dependency "terminal-table", ">= 1.8.0", "< 3.1"
   spec.add_dependency "colorize", "~> 0.7"
   spec.add_dependency "thor", ">= 0.20.3", "< 2.0"
   spec.add_dependency "launchy", "~> 2.4"
