@@ -3,6 +3,9 @@ require 'concurrent-ruby'
 
 module Gush
   class Client
+    # Use the exists? method if we're on a newer version of redis.
+    REDIS_EXISTS_METHOD = Gem.loaded_specs['redis'].version < Gem::Version.new('4.2') ? :exists : :exists?
+
     attr_reader :configuration
 
     @@redis_connection = Concurrent::ThreadLocalVar.new(nil)
@@ -72,7 +75,7 @@ module Gush
       id = nil
       loop do
         id = SecureRandom.uuid
-        available = !redis.exists("gush.workflow.#{id}")
+        available = !redis.public_send(REDIS_EXISTS_METHOD, "gush.workflow.#{id}")
 
         break if available
       end
