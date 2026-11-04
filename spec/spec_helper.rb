@@ -1,3 +1,4 @@
+require 'logger'
 require 'active_support'
 require 'active_support/testing/time_helpers'
 require 'gush'
@@ -122,6 +123,7 @@ RSpec.configure do |config|
 
     Gush.configure do |c|
       c.redis_url        = REDIS_URL
+      c.redis            = nil
       c.gushfile         = GUSHFILE
       c.locking_duration = defined?(locking_duration) ? locking_duration : 2
       c.polling_interval = defined?(polling_interval) ? polling_interval : 0.3
