@@ -1,3 +1,4 @@
+require 'logger'
 require 'active_support'
 require 'active_support/testing/time_helpers'
 require 'gush'
