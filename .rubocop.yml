@@ -4,6 +4,7 @@ require:
 
 AllCops:
   NewCops: disable
+  TargetRubyVersion: 3.0
 
 Gemspec/OrderedDependencies:
   Enabled: false
